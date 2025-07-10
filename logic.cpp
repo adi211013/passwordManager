@@ -10,6 +10,7 @@
 #include <filesystem>
 #include "Entry.h"
 
+
 void clearConsole() {
 #ifdef _WIN32
     system("cls");
@@ -36,4 +37,6 @@ void addData() {
     sleep(1);
     clearConsole();
 }
-void showData() {}
+void showData() {
+
+}

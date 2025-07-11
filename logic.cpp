@@ -52,6 +52,7 @@ std::vector<Entry> loadEntries() {
             std::string login,password;
             file>>shift; file.ignore(); std::getline(file, login); std::getline(file,password);
             Entry newEntry(entry.path().stem(),login,password,shift);
+            newEntry.unHashPasword();
             entries.push_back(newEntry);
         }
     }

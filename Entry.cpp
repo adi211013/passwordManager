@@ -19,9 +19,16 @@ Entry::Entry() {
     shift = std::rand()%26;
 }
 
-void Entry::hashPassword(){//TODO
+void Entry::hashPassword(){
+    for (int i=0;i<password.length();i++) {
+        password[i]=password[i]+shift;
     }
-void Entry::unHashPasword(){}
+}
+void Entry::unHashPasword() {
+    for (int i=0;i<password.length();i++) {
+        password[i]=password[i]-shift;
+    }
+}
 std::string Entry::getWebsite() {return website;}
 std::string Entry::getLogin() {return login;}
 std::string Entry::getPassword() {return password;}

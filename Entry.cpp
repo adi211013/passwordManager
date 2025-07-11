@@ -3,11 +3,18 @@
 //
 
 #include "Entry.h"
+#include <print>
 Entry::Entry(std::string website,std::string login, std::string password) {
     Entry::login = login;
     Entry::password = password;
     Entry::website = website;
     shift = std::rand()%26;
+}
+Entry::Entry(std::string website,std::string login, std::string password,int shift) {
+    Entry::login = login;
+    Entry::password = password;
+    Entry::website = website;
+    Entry::shift = shift;
 }
 Entry::Entry() {
     shift = std::rand()%26;
@@ -20,12 +27,6 @@ std::string Entry::getWebsite() {return website;}
 std::string Entry::getLogin() {return login;}
 std::string Entry::getPassword() {return password;}
 int Entry::getShift() {return shift;}
-void Entry::setWebsite(std::string website) {
-    Entry::website = website;
-}
-void Entry::setLogin(std::string login) {
-    Entry::login = login;
-}
-void Entry::setPassword(std::string password) {
-    Entry::password = password;
+void Entry::getData() {
+    std::print("Strona:{}, Login:{}, Haslo:{}\n",Entry::website,Entry::login,Entry::password);
 }

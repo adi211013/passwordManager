@@ -4,11 +4,12 @@
 #include <cstdlib>
 #include <iostream>
 #include "logic.h"
-
 #include <fstream>
-#include <oneapi/tbb/task_arena.h>
 #include <filesystem>
 #include "Entry.h"
+#include <vector>
+#include <fstream>
+#include <unistd.h>
 
 
 void clearConsole() {
@@ -38,5 +39,26 @@ void addData() {
     clearConsole();
 }
 void showData() {
+    clearConsole();
+    std::vector<Entry> entries = loadEntries();
+    for (int i = 0; i < entries.size(); i++) {
+        entries[i].getData();
+    }
 
+}
+std::vector<Entry> loadEntries() {
+    std::vector<Entry> entries;
+    std::string folder="data/";
+    for (const auto& entry : std::filesystem::directory_iterator(folder)) {
+        if (entry.is_regular_file()) {
+            std::ifstream file(entry.path());
+            if (!file.is_open()) continue;
+            int shift;
+            std::string login,password;
+            file>>shift; file.ignore(); std::getline(file, login); std::getline(file,password);
+            Entry newEntry(entry.path().stem(),login,password,shift);
+            entries.push_back(newEntry);
+        }
+    }
+    return entries;
 }

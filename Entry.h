@@ -13,17 +13,15 @@ private: std::string login;
 private: std::string password;
 private: int shift;
 public: Entry(std::string website,std::string login, std::string password);
+public: Entry(std::string website,std::string login, std::string password, int shift);
 public: Entry();
-public: void setWebsite(std::string website);
-public: void setLogin(std::string login);
-public: void setPassword(std::string password);
 public:void hashPassword();
 public:void unHashPasword();
 public: std::string getWebsite();
 public: std::string getLogin();
 public: std::string getPassword();
-    public: int getShift();
-};
+public: int getShift();
+public: void getData();
 
 
 

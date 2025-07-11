@@ -6,6 +6,14 @@
 #define LOGIC_H
 #include <vector>
 #include "Entry.h"
+#include <fstream>
+#include <filesystem>
+#include <vector>
+#include <fstream>
+#include <unistd.h>
+#include <cstdlib>
+#include <iostream>
+
 void clearConsole();
 void addData();
 void showData();

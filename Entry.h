@@ -5,6 +5,7 @@
 #ifndef DATA_H
 #define DATA_H
 #include <string>
+#include <print>
 
 
 class Entry {
@@ -22,7 +23,6 @@ public: std::string getLogin();
 public: std::string getPassword();
 public: int getShift();
 public: void getData();
-
-
+};
 
 #endif //DATA_H

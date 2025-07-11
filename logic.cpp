@@ -1,15 +1,8 @@
 //
 // Created by adi on 7/10/25.
 //
-#include <cstdlib>
-#include <iostream>
 #include "logic.h"
-#include <fstream>
-#include <filesystem>
-#include "Entry.h"
-#include <vector>
-#include <fstream>
-#include <unistd.h>
+
 
 
 void clearConsole() {
@@ -44,7 +37,9 @@ void showData() {
     for (int i = 0; i < entries.size(); i++) {
         entries[i].getData();
     }
-
+    std::cout<<"Wcisnij przycisk aby powrocic do menu"<<std::endl;
+    std::string tmp;
+    std::cin>>tmp;
 }
 std::vector<Entry> loadEntries() {
     std::vector<Entry> entries;

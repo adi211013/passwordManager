@@ -29,10 +29,10 @@ void Entry::unHashPasword() {
         password[i]=password[i]-shift;
     }
 }
-std::string Entry::getWebsite() {return website;}
-std::string Entry::getLogin() {return login;}
-std::string Entry::getPassword() {return password;}
-int Entry::getShift() {return shift;}
+std::string Entry::getWebsite() const {return website;}
+std::string Entry::getLogin() const {return login;}
+std::string Entry::getPassword() const {return password;}
+int Entry::getShift() const {return shift;}
 void Entry::getData() {
     std::print("Strona:{}, Login:{}, Haslo:{}\n",Entry::website,Entry::login,Entry::password);
 }

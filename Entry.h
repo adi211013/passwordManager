@@ -18,10 +18,10 @@ public: Entry(std::string website,std::string login, std::string password, int s
 public: Entry();
 public:void hashPassword();
 public:void unHashPasword();
-public: std::string getWebsite();
-public: std::string getLogin();
-public: std::string getPassword();
-public: int getShift();
+public: std::string getWebsite() const;
+public: std::string getLogin() const;
+public: std::string getPassword() const;
+public: int getShift() const;
 public: void getData();
 };
 

@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <iostream>
-
+#include "DBmanager.h"
 void clearConsole();
 void addData();
 void showData();

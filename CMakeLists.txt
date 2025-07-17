@@ -7,4 +7,8 @@ add_executable(passwordManager main.cpp
         Entry.cpp
         Entry.h
         logic.cpp
-        logic.h)
+        logic.h
+        DBmanager.cpp
+        DBmanager.h)
+target_link_libraries(passwordManager sqlite3)
+:

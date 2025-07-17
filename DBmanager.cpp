@@ -11,6 +11,7 @@ DBmanager::DBmanager(const std::string &dbFile) {
     if (rc != SQLITE_OK) {
         std::cerr << "Can't open database: " << sqlite3_errmsg(db) << std::endl;
     }
+    createTable();
 }
 DBmanager::~DBmanager() {
     if (db)

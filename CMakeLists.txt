@@ -11,4 +11,3 @@ add_executable(passwordManager main.cpp
         DBmanager.cpp
         DBmanager.h)
 target_link_libraries(passwordManager sqlite3)
-:

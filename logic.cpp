@@ -3,15 +3,6 @@
 //
 #include "logic.h"
 
-
-
-void clearConsole() {
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
-}
 void addData() {
     clearConsole();
     std::string website,login,password;
@@ -23,10 +14,6 @@ void addData() {
     std::cin>> password;
     Entry newEntry(website,login,password);
     newEntry.hashPassword();
-    /*std::filesystem::create_directory("data");
-    std::ofstream file("data/" + newEntry.getWebsite() + ".txt");
-    if (!file.is_open()) {std::cerr << "Plik nie otworzyl sie poprawnie" << std::endl; return;}
-    file<<newEntry.getShift()<<std::endl<<newEntry.getLogin()<<std::endl<<newEntry.getPassword();*/
     DBmanager db("data/database.db");
     if (!db.addEntry(newEntry))
         return;

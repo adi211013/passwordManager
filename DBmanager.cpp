@@ -52,3 +52,24 @@ bool DBmanager::addEntry(const Entry& entry) {
     else return false;
 
 }
+std::vector<Entry> DBmanager::getEntries() {
+    std::vector<Entry> entries;
+    std::string sql ="SELECT * FROM entries;";
+    sqlite3_stmt *stmt;
+    if (sqlite3_prepare_v2(db,sql.c_str(),-1,&stmt,nullptr)!= SQLITE_OK) {
+        std::cerr << "Can't prepare statement" << std::endl;
+        return entries;
+    }
+    std::string website, login, password;
+    int shift;
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        website=reinterpret_cast<const char*>(sqlite3_column_text(stmt,1));
+        login=reinterpret_cast<const char*>(sqlite3_column_text(stmt,2));
+        password=reinterpret_cast<const char*>(sqlite3_column_text(stmt,3));
+        shift=sqlite3_column_int(stmt,4);
+        Entry e(website, login, password, shift);
+        entries.push_back(e);
+    }
+    sqlite3_finalize(stmt);
+    return entries;
+}
